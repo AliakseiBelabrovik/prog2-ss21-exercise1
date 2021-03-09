@@ -38,17 +38,17 @@ public class AppTest {
                 "8 characters.");
     }
 
-    @Test //must return false, sind there are not small letters
+    @Test //must return false, since there are not lowercase letters
     @DisplayName("Testing the password contains both small and big letters")
     void testForSmallLetters() {
-        assertFalse(App.checkPassword("PASSWORD111!"), "The password must contain at least one small letter");
+        assertFalse(App.checkPassword("PASSWORD111!"), "The password must contain at least one lowercase letter");
     }
 
 
-    @Test //must return false, sind there are not big letters
+    @Test //must return false, since there are not capital letters
     @DisplayName("Testing the password contains both small and big letters")
     void testForBigLetters() {
-        assertFalse(App.checkPassword("password111@"), "The password must contain at least one big letter");
+        assertFalse(App.checkPassword("password111@"), "The password must contain at least one capital letter");
     }
 
 }
