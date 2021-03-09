@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest {
 
@@ -27,15 +27,28 @@ public class AppTest {
     @DisplayName("Testing the maximum length of 25 characters")
     void testForMaximumLength() {
         assertFalse(App.checkPassword("Password1@TestingMustBeAtLeast25"), "The length of the password " +
-                "must be maximum of 25 characters."); //test must return falls, because input
+                "must be maximum of 25 characters."); //test must return false, because input
         //is 32 characters long
     }
 
-    @Test
+    @Test //test must return false, because input is 7 characters long
     @DisplayName("Testing the minimum length of 8 characters")
     void testForMinimumLength() {
-        assertFalse(App.checkPassword("Passwor"), "The length of the password must be minimum of " +
+        assertFalse(App.checkPassword("Passw1@"), "The length of the password must be minimum of " +
                 "8 characters.");
+    }
+
+    @Test //must return false, sind there are not small letters
+    @DisplayName("Testing the password contains both small and big letters")
+    void testForSmallLetters() {
+        assertFalse(App.checkPassword("PASSWORD111!"), "The password must contain at least one small letter");
+    }
+
+
+    @Test //must return false, sind there are not big letters
+    @DisplayName("Testing the password contains both small and big letters")
+    void testForBigLetters() {
+        assertFalse(App.checkPassword("password111@"), "The password must contain at least one big letter");
     }
 
 }
