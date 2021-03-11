@@ -252,13 +252,13 @@ public class AppTest {
     @Test // Special characters a. ASCII value (- 40 ) - 41 # - 35 $ -36 ? -63 ! - 33 % - 37 / -47 @ - 64
     @DisplayName("24: Testing for not allowed special characters")
     void testForSpecialCharacters() {
-        assertFalse(App.checkPassword("Pasd111:" + specificCharacter), "The method must return false if " +
-                "not allowed specific characters are used." + specificCharacter);
+        assertFalse(App.checkPassword("Pasd111:"), "The method must return false if " +
+                "forbidden specific characters are used.");
     }
     @Test
     @DisplayName("25: Testing for special characters")
     void testForSpecialCharacters_Scenario2() {
-        assertTrue(App.checkPassword("()$?!%/Pas!w@ord1#" + specificCharacter), "The method must allow the " +
+        assertTrue(App.checkPassword("()$?!%/Pas!w@ord1#"), "The method must allow the " +
                 "following specific characters: ()#$?!%/@");
     }
 
