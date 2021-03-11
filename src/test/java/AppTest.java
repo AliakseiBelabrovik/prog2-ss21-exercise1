@@ -1,7 +1,5 @@
 import org.junit.jupiter.api.*;
-
 import java.util.Random;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -44,6 +42,131 @@ public class AppTest {
     public static void finish() {
         System.out.println("Finished testing the application");
     }
+
+
+    //test null object
+    @Test
+    @DisplayName("1: Test if the parameter is null")
+    void testIfParameterIsNull_Scenario1() {
+        assertTrue(App.checkNullObject("NotNull"));
+    }
+    @Test
+    @DisplayName("2: Test if the parameter is null")
+    void testIfParameterIsNull_Scenario2() {
+        assertFalse(App.checkNullObject(null), "The method must return false, since the " +
+                "parameter must not be null");
+    }
+
+    //Test length
+    @Test
+    @DisplayName("3: Test the length")
+    void testTheLength_Scenario1() {
+        assertTrue(App.checkTheLength("PasswordIsLongEnough"), "Password must be between 8 and " +
+                "25 characters long!");
+    }
+    @Test
+    @DisplayName("4: Test the length")
+    void testTheLength_Scenario2() {
+        assertFalse(App.checkTheLength("Short"), "Password too short");
+    }
+    @Test
+    @DisplayName("5: Test the length")
+    void testTheLength_Scenario3() {
+        assertFalse(App.checkTheLength("PasswordIsToooooooooooooooLong"), "Password too long");
+    }
+
+
+
+    //test upperCase and lowcase
+    @Test
+    @DisplayName("6: Test lower and upper characters")
+    void testUpperLowerCaseCharacters_Scenario1() {
+        assertFalse(App.checkUpperCaseAndLowerCaseCharacters("password12354%:"), "Password must " +
+                "contain at least one uppercase character!");
+    }
+    @Test
+    @DisplayName("7: Test lower and upper characters")
+    void testUpperLowerCaseCharacters_Scenario2() {
+        assertFalse(App.checkUpperCaseAndLowerCaseCharacters("PASSWORD123&5"), "Password must contain " +
+                "at least one lowercase character!");
+    }
+    @Test
+    @DisplayName("8: Test lower and upper characters")
+    void testUpperLowerCaseCharacters_Scenario3() {
+        assertFalse(App.checkUpperCaseAndLowerCaseCharacters("5234242341231%%@@@"), "Password must" +
+                " contain a least one lowercase and one uppercase character");
+    }
+    @Test
+    @DisplayName("9: Test lower and upper characters")
+    void testUpperLowerCaseCharacters_Scenario4() {
+        assertTrue(App.checkUpperCaseAndLowerCaseCharacters("PasswordIsLongEnough"));
+    }
+
+    //test numbers
+    @Test
+    @DisplayName("10: Testing the password contains at least one number")
+    void testNumbers_Scenario1() {
+        assertFalse(App.checkNumbers("ThePassword%"), "The password must contain at least one number. " +
+                "The method must return false.");
+    }
+    //test numbers
+    @Test
+    @DisplayName("11: Testing the password contains at least one number")
+    void testNumbers_Scenario2() {
+        assertTrue(App.checkNumbers("555555555555555"));
+    }
+
+    //test specific characters
+    @Test
+    @DisplayName("12: Testing the password contains only allowed special characters")
+    void testSpecialCharacters_Scenario1() {
+        assertFalse(App.checkSpecificCharacters("():#$?!%/@kA125"), "The password should" +
+                " not contain not allowed special characters!");
+    }
+    @Test
+    @DisplayName("13: Testing the password contains only allowed special characters")
+    void testSpecialCharacters_Scenario2() {
+        assertFalse(App.checkSpecificCharacters("Passwo]586"), "The password should" +
+                " not contain not allowed special characters and contain at least one ()#$?!%/@!");
+    }
+    @Test
+    @DisplayName("14: Testing the password contains only allowed special characters")
+    void testSpecialCharacters_Scenario3() {
+        assertTrue(App.checkSpecificCharacters("ThePassword%"));
+    }
+
+
+
+    //test 2 conditions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Test
     @DisplayName("1: Test for correct password.")
