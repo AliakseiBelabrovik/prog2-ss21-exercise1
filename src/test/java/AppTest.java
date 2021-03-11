@@ -15,7 +15,7 @@ public class AppTest {
 
     /**
      * Prints "Testing the application" at the beginning
-     * Generates a random specific character (one of ()#$?!%/@) to use in test 7 and 8 for testing
+     * Generates a random specific character (one of ()#$?!%/@) to use in test 24 and 25 for testing
      * for specific characters
      */
     @BeforeAll
