@@ -86,7 +86,7 @@ public class App {
      * @param password String parameter that must be checked
      * @return Returns true only if no 3 consecutive numbers, otherwise false
      */
-    public static boolean checkConsecutiveNumbers(String password) {
+    public static boolean checkFourNumbersInARow(String password) {
         char[] charArray = password.toCharArray();
         int[] intArray = new int[charArray.length];
         for (int i = 0; i < intArray.length - 3; i++) {
@@ -107,7 +107,7 @@ public class App {
      * @param password String parameter that must be checked
      * @return Returns true only if maximum 3 same numbers in a row, otherwise false
      */
-    public static boolean checkFourNumbersInARow(String password) {
+    public static boolean checkConsecutiveNumbers(String password) {
         char[] charArray = password.toCharArray();
         int[] intArray = new int[charArray.length];
         for (int i = 0; i < intArray.length - 2; i++) {
@@ -123,7 +123,7 @@ public class App {
     }
 
     /**
-     * This method checks whether the password String fulfills all the conditions:
+     * This method checks whether the password String fulfills all the conditions at a time:
      * 1. the minimum and maximum length of 8 and 25 characters respectively
      * 2. at least one uppercase and lowercase character
      * 3. at least one number
