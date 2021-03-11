@@ -40,7 +40,7 @@ public class AppTest {
     @Test
     @DisplayName("1: Test for correct password.")
     void testForCorrectPassword() {
-        assertTrue(App.checkPassword("@Pasd111%!"), "The password @Pasd111%! is an allowed password. " +
+        assertTrue(App.checkPassword("/@Pasd111%!"), "The password @Pasd111%! is an allowed password. " +
                 "Check the method again.");
     }
 
@@ -100,6 +100,44 @@ public class AppTest {
     void testForWhiteSpaces() {
         assertFalse(App.checkPassword("()$?!% /Pas!w@ord1#"), "The method must return false, because " +
                 "no whitespaces are allowed");
+    }
+
+
+    @Test
+    @DisplayName("10: Testing for 3 consecutive numbers 1")
+    void testForConsecutiveNumbers_Scenario1() {
+        assertFalse(App.checkPassword("678Testing!"), "The method must return false.");
+    }
+
+
+    @Test
+    @DisplayName("11: Testing for 3 consecutive numbers 2")
+    void testForConsecutiveNumbers_Scenario2() {
+        assertTrue(App.checkPassword("134@abcKPass"));
+    }
+
+    @Test
+    @DisplayName("12: Testing for numbers 1")
+    void testForMaxThreeNumbers_Scenario1() {
+        assertFalse(App.checkPassword("1111Pass%ord"));
+    }
+
+    @Test
+    @DisplayName("13: Testing for numbers 2")
+    void testForMaxThreeNumbers_Scenario2() {
+        assertTrue(App.checkPassword("111AAAA%%%%aaaa"));
+    }
+
+    @Test
+    @DisplayName("14: Test for NullPointerException")
+    void testForNullPointerException() {
+        assertFalse(App.checkPassword(null), "NullObjectNotAllowed");
+    }
+
+    @Test
+    @DisplayName("15: Test for correct Password 2")
+    void testForCorrectPassword_Scenario2() {
+        assertTrue(App.checkPassword("AbC777XXX%%%/"));
     }
 
 
