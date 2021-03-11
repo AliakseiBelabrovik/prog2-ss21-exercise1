@@ -6,6 +6,7 @@ public class App {
 
 
     /**
+     * GitHub URL: https://github.com/AliakseiBelabrovik/prog2-ss21-exercise1.git
      * This function checks whether the password String fulfills all the conditions:
      * 1. the minimum and maximum length of 8 and 25 characters respectively
      * 2. at least one uppercase and lowercase character

@@ -4,10 +4,22 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * GitHub URL: https://github.com/AliakseiBelabrovik/prog2-ss21-exercise1.git
+ * Test class for testing the checkPassword method in App.java that returns a boolean value
+ * The class contains a static char variable to generate a random specific character and test for this
+ */
 public class AppTest {
 
+    //static variable for generating specific character to test
     static char specificCharacter;
 
+
+    /**
+     * Prints "Testing the application" at the beginning
+     * Generates a random specific character (one of ()#$?!%/@) to use in test 7 and 8 for testing
+     * for specific characters
+     */
     @BeforeAll
     public static void init() {
         System.out.println("Testing the application");
@@ -25,17 +37,13 @@ public class AppTest {
     }
 
 
+    /**
+     * Prints "Finished testing the application" at the end
+     */
     @AfterAll
     public static void finish() {
         System.out.println("Finished testing the application");
     }
-
-
-
-    //Kennwort muss zwischen 8 und 25 Zeichen - ok
-    //muss mindestens 1 klein- und 1 Großbuchstaben haben - ok
-    //muss Zahlen enthalten
-    //muss eines der Sonderzeichen enthalten
 
     @Test
     @DisplayName("1: Test for correct password.")
@@ -67,14 +75,14 @@ public class AppTest {
     }
 
 
-    @Test //must return false, since there are not capital letters
+    @Test
     @DisplayName("5: Testing the password contains both small and big letters")
     void testForBigLetters() {
         assertFalse(App.checkPassword("password111@"), "The password must contain at least one capital " +
                 "letter. The method must return false.");
     }
 
-    @Test //the method must return false, since there is no number
+    @Test
     @DisplayName("6: Testing the password contains at least one number")
     void testForNumber() {
         assertFalse(App.checkPassword("ThePassword%"), "The password must contain at least one number. " +
@@ -117,13 +125,13 @@ public class AppTest {
     }
 
     @Test
-    @DisplayName("12: Testing for numbers 1")
+    @DisplayName("12: Testing for four numbers in a row 1")
     void testForMaxThreeNumbers_Scenario1() {
         assertFalse(App.checkPassword("1111Pass%ord"));
     }
 
     @Test
-    @DisplayName("13: Testing for numbers 2")
+    @DisplayName("13: Testing for four numbers in a row 2")
     void testForMaxThreeNumbers_Scenario2() {
         assertTrue(App.checkPassword("111AAAA%%%%aaaa"));
     }
