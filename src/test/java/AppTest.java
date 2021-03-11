@@ -21,17 +21,6 @@ public class AppTest {
     @BeforeAll
     public static void init() {
         System.out.println("Testing the application");
-
-        Random random = new Random();
-        while (true) {
-            int valueOfChar = random.nextInt(64 - 33 + 1) + 33;
-            if (valueOfChar == 33 || (valueOfChar >= 35 && valueOfChar <= 37) || valueOfChar == 40 || valueOfChar == 41
-                    || valueOfChar == 47 || valueOfChar == 63 || valueOfChar == 64) {
-                specificCharacter = (char) valueOfChar;
-                break;
-            }
-        }
-        // Special characters a. ASCII value (- 40 ) - 41 # - 35 $ -36 ? -63 ! - 33 % - 37 / -47 @ - 64
     }
 
 
